@@ -1,4 +1,5 @@
-with import (fetchTarball https://nixos.org/channels/nixos-17.03/nixexprs.tar.xz) {};
+#with import (fetchTarball https://nixos.org/channels/nixos-17.03/nixexprs.tar.xz) {};
+with import <nixpkgs> {};
 
 let
     redis30 = pkgs.redis.overrideDerivation (super: {
