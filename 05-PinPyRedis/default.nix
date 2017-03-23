@@ -6,8 +6,8 @@ let
     src = fetchurl {
        url = "http://download.redis.io/releases/redis-3.0.7.tar.gz";
        sha256 = "b2a791c4ea3bb7268795c45c6321ea5abcc24457178373e6a6e3be6372737f23";
-         };
-       });
+       };
+    });
 
      pyredis = python27Packages.buildPythonPackage rec {
          name = "pyredis";
@@ -32,17 +32,17 @@ stdenv.mkDerivation {
      python27Packages.virtualenv
      pyredis
      ];
-      src = null;
-      # When used as `nix-shell --pure`
-      shellHook = ''
-      export SOURCE_DATE_EPOCH=315532800
-      unset http_proxy
-      export GIT_SSL_CAINFO=/etc/ssl/certs/ca-bundle.crt
-      '';
-      # used when building environments
-      extraCmds = ''
-      unset http_proxy # otherwise downloads will fail ("nodtd.invalid")
-      export SOURCE_DATE_EPOCH=315532800
-      export GIT_SSL_CAINFO=/etc/ssl/certs/ca-bundle.crt
-      '';
+     src = null;
+     # When used as `nix-shell --pure`
+     shellHook = ''
+     export SOURCE_DATE_EPOCH=315532800
+     unset http_proxy
+     export GIT_SSL_CAINFO=/etc/ssl/certs/ca-bundle.crt
+     '';
+     # used when building environments
+     extraCmds = ''
+     unset http_proxy # otherwise downloads will fail ("nodtd.invalid")
+     export SOURCE_DATE_EPOCH=315532800
+     export GIT_SSL_CAINFO=/etc/ssl/certs/ca-bundle.crt
+     '';
     }
